@@ -1,9 +1,10 @@
-[gd_scene load_steps=5 format=3 uid="uid://ck4gkywe35k0h"]
+[gd_scene load_steps=6 format=3 uid="uid://ck4gkywe35k0h"]
 
 [ext_resource type="Script" path="res://ParallaxBackground.gd" id="1_all3e"]
 [ext_resource type="Texture2D" uid="uid://cch28gy2xvhjl" path="res://images/Layers/back.png" id="1_jqgwd"]
 [ext_resource type="Texture2D" uid="uid://i530isr2lijg" path="res://images/Layers/buildings.png" id="3_xc8dp"]
 [ext_resource type="Texture2D" uid="uid://ba2w5bf1jltx8" path="res://images/Layers/highway.png" id="4_c31mn"]
+[ext_resource type="PackedScene" uid="uid://bccy32i0mvgt0" path="res://player.tscn" id="5_vfn0h"]
 
 [node name="main" type="Node2D"]
 
@@ -48,3 +49,6 @@ motion_mirroring = Vector2(1276, 0)
 scale = Vector2(1.42522, 2.67917)
 texture = ExtResource("4_c31mn")
 centered = false
+
+[node name="Player" parent="." instance=ExtResource("5_vfn0h")]
+position = Vector2(246, 506)
