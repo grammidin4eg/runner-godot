@@ -1,12 +1,14 @@
-[gd_scene load_steps=6 format=3 uid="uid://ck4gkywe35k0h"]
+[gd_scene load_steps=7 format=3 uid="uid://ck4gkywe35k0h"]
 
 [ext_resource type="Script" path="res://ParallaxBackground.gd" id="1_all3e"]
 [ext_resource type="Texture2D" uid="uid://cch28gy2xvhjl" path="res://images/Layers/back.png" id="1_jqgwd"]
+[ext_resource type="Script" path="res://main.gd" id="1_jxh55"]
 [ext_resource type="Texture2D" uid="uid://i530isr2lijg" path="res://images/Layers/buildings.png" id="3_xc8dp"]
 [ext_resource type="Texture2D" uid="uid://ba2w5bf1jltx8" path="res://images/Layers/highway.png" id="4_c31mn"]
 [ext_resource type="PackedScene" uid="uid://bccy32i0mvgt0" path="res://player.tscn" id="5_vfn0h"]
 
 [node name="main" type="Node2D"]
+script = ExtResource("1_jxh55")
 
 [node name="ParallaxBackground" type="ParallaxBackground" parent="."]
 script = ExtResource("1_all3e")
@@ -51,4 +53,13 @@ texture = ExtResource("4_c31mn")
 centered = false
 
 [node name="Player" parent="." instance=ExtResource("5_vfn0h")]
-position = Vector2(246, 506)
+position = Vector2(313, 526)
+
+[node name="SpawnMarker" type="Marker2D" parent="."]
+position = Vector2(1091, 577)
+
+[node name="SpawnTimer" type="Timer" parent="."]
+wait_time = 2.0
+autostart = true
+
+[connection signal="timeout" from="SpawnTimer" to="." method="_on_spawn_timer_timeout"]
