@@ -1,6 +1,9 @@
-extends RigidBody2D
+extends Area2D
 
-@export var speed = 500
+
+@export var speed = 680
 
 func _process(delta):
-	linear_velocity += Vector2(-speed, 0) * delta 
+	move_local_x(-speed * delta)
+	if position.x < 0:
+		queue_free()
